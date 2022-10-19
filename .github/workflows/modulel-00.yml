@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  build-and-test:
+  Exercise-00:
 
     runs-on: ubuntu-latest
 
@@ -18,13 +18,13 @@ jobs:
     # - name: install cppunit
       # run: sudo apt install -y libcppunit-dev
 
-    - name: make
+    - name: build
       run: make -C module-00/ex00
 
-    - name: make check
+    - name: test
       run: make -C module-00/ex00 check
 
-  test:
+  Exercise-01:
 
     runs-on: ubuntu-latest
 
@@ -34,8 +34,8 @@ jobs:
     # - name: install cppunit
       # run: sudo apt install -y libcppunit-dev
 
-    - name: make
+    - name: build
       run: make -C module-00/ex00
 
-    - name: make check
+    - name: test
       run: make -C module-00/ex00 check
