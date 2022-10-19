@@ -6,7 +6,7 @@
 /*   By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 01:15:23 by ccamie            #+#    #+#             */
-/*   Updated: 2022/10/20 01:59:05 by ccamie           ###   ########.fr       */
+/*   Updated: 2022/10/20 02:01:32 by ccamie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int	main(void) {
 
 	if (returned == expected) {
 		std::cout << "\x1b[32mSUCCESS\x1b[0m\n";
-		std::cout << "\x1b[36mExpected: " << expected << "\x1b[0m\n";
-		std::cout << "\x1b[36mReturned: " << returned << "\x1b[0m\n";
+		std::cout << "\x1b[37mExpected: " << expected << "\x1b[0m\n";
+		std::cout << "\x1b[37mReturned: " << returned << "\x1b[0m\n";
 		return EXIT_SUCCESS;
 	} else {
 		std::cout << "\x1b[31mFAILURE\x1b[0m\n";
-		std::cout << "\x1b[36mExpected: " << expected << "\x1b[0m\n";
-		std::cout << "\x1b[36mReturned: " << returned << "\x1b[0m\n";
+		std::cout << "\x1b[37mExpected: " << expected << "\x1b[0m\n";
+		std::cout << "\x1b[37mReturned: " << returned << "\x1b[0m\n";
 		return EXIT_FAILURE;
 	}
 }
