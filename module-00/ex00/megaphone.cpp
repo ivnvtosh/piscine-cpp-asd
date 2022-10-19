@@ -6,12 +6,14 @@
 /*   By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 02:30:37 by ccamie            #+#    #+#             */
-/*   Updated: 2022/10/19 03:07:17 by ccamie           ###   ########.fr       */
+/*   Updated: 2022/10/20 00:03:31 by ccamie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cstdlib>
+
+#define MESSAGE "* LOUD AND UNBEARABLE FEEDBACK NOISE *"
 
 int myToUpper(int character) {
     if (character >= 97 && character <= 122) {
@@ -23,15 +25,15 @@ int myToUpper(int character) {
 
 int main(int argc, char **argv) {
 	if (argc == 1) {
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+		std::cout << MESSAGE << std::endl;
 		return EXIT_SUCCESS;
 	}
 
 	int j = 1;
-	while (j < argc) {
+	while (char *string = argv[j]) {
 
 		int i = 0;
-		while (int character = argv[j][i]) {
+		while (int character = string[i]) {
 			std::cout << (char)myToUpper(character);
 			i += 1;
 		}
