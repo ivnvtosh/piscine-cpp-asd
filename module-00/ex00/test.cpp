@@ -6,7 +6,7 @@
 /*   By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 03:04:58 by ccamie            #+#    #+#             */
-/*   Updated: 2022/10/19 16:59:43 by ccamie           ###   ########.fr       */
+/*   Updated: 2022/10/19 17:00:14 by ccamie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,13 +121,13 @@ int main(int argc, char **argv, char **envp) {
 
 	arg[0] = TARGET;
 	arg[1] = NULL;
-	tmp = test((char *)"* LOUD AND UNBEARABLE FEEDBACK NOISE  *\n", arg, envp);
+	tmp = test((char *)"* LOUD AND UNBEARABLE FEEDBACK NOISE *\n", arg, envp);
 	status = tmp == true;
 
 	arg[0] = TARGET;
 	arg[1] = (char *)"shhhhh... I think the students are asleep...";
 	arg[2] = NULL;
-	tmp = test((char *)"SHHHHH... I THINK THE STUDENTS ARE ASLEEP. ..\n", arg, envp);
+	tmp = test((char *)"SHHHHH... I THINK THE STUDENTS ARE ASLEEP...\n", arg, envp);
 	status = tmp == true;
 
 	arg[0] = TARGET;
@@ -135,7 +135,7 @@ int main(int argc, char **argv, char **envp) {
 	arg[2] = (char *)" ! ";
 	arg[3] = (char *)"Sorry students, I thought this thing was off.";
 	arg[4] = NULL;
-	tmp = test((char *)"DAMNIT ! SORRY STUDENTS, I THOUGHT THIS THING WAS OFF. \n", arg, envp);
+	tmp = test((char *)"DAMNIT ! SORRY STUDENTS, I THOUGHT THIS THING WAS OFF.\n", arg, envp);
 	status = tmp == true;
 
 	return status == true ? EXIT_SUCCESS : EXIT_FAILURE;
