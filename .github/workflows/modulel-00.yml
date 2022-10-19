@@ -18,9 +18,6 @@ jobs:
     - name: Build
       run: make -C module-00/ex00
 
-    - name: Build Test
-      run: make -C module-00/ex00 build-test
-
     - name: Test 00
       run: make -C module-00/ex00 test-00
 
