@@ -6,7 +6,7 @@
 /*   By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 03:04:58 by ccamie            #+#    #+#             */
-/*   Updated: 2022/10/19 16:53:35 by ccamie           ###   ########.fr       */
+/*   Updated: 2022/10/19 16:59:43 by ccamie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void print(char *string) {
 	std::cout << std::endl;
 }
 
-void test(char *expected, char **argv, char **envp) {
+bool test(char *expected, char **argv, char **envp) {
 	static int index = 0;
 
 	char string[BUFFER];
@@ -82,7 +82,7 @@ void test(char *expected, char **argv, char **envp) {
 	int status;
 	waitpid(pid, &status, 0x02);
 	if (WIFEXITED(status) != 0 && WEXITSTATUS(status) != EXIT_SUCCESS) {
-		exit(EXIT_SUCCESS);
+		exit(EXIT_FAILURE);
 	}
 
 	ssize_t readed = read(fd[0], string, BUFFER);
@@ -104,9 +104,11 @@ void test(char *expected, char **argv, char **envp) {
 		print(string);
 	
 		std::cout << std::endl;
+		return false;
 	}
 
 	index += 1;
+	return true;
 }
 
 int main(int argc, char **argv, char **envp) {
@@ -114,22 +116,27 @@ int main(int argc, char **argv, char **envp) {
 	(void)argv;
 
 	char *arg[16];
+	bool status;
+	bool tmp;
 
 	arg[0] = TARGET;
 	arg[1] = NULL;
-	test((char *)"* LOUD AND UNBEARABLE FEEDBACK NOISE  *\n", arg, envp);
+	tmp = test((char *)"* LOUD AND UNBEARABLE FEEDBACK NOISE  *\n", arg, envp);
+	status = tmp == true;
 
 	arg[0] = TARGET;
 	arg[1] = (char *)"shhhhh... I think the students are asleep...";
 	arg[2] = NULL;
-	test((char *)"SHHHHH... I THINK THE STUDENTS ARE ASLEEP. ..\n", arg, envp);
+	tmp = test((char *)"SHHHHH... I THINK THE STUDENTS ARE ASLEEP. ..\n", arg, envp);
+	status = tmp == true;
 
 	arg[0] = TARGET;
 	arg[1] = (char *)"Damnit";
 	arg[2] = (char *)" ! ";
 	arg[3] = (char *)"Sorry students, I thought this thing was off.";
 	arg[4] = NULL;
-	test((char *)"DAMNIT ! SORRY STUDENTS, I THOUGHT THIS THING WAS OFF. \n", arg, envp);
+	tmp = test((char *)"DAMNIT ! SORRY STUDENTS, I THOUGHT THIS THING WAS OFF. \n", arg, envp);
+	status = tmp == true;
 
-	return EXIT_SUCCESS;
+	return status == true ? EXIT_SUCCESS : EXIT_FAILURE;
 }
