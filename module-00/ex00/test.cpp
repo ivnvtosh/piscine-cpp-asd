@@ -6,7 +6,7 @@
 /*   By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 03:04:58 by ccamie            #+#    #+#             */
-/*   Updated: 2022/10/19 17:01:50 by ccamie           ###   ########.fr       */
+/*   Updated: 2022/10/19 17:46:25 by ccamie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ bool test(char *expected, char **argv, char **envp) {
 	index += 1;
 	return true;
 }
-
+ 
 int main(int argc, char **argv, char **envp) {
 	(void)argc;
 	(void)argv;
