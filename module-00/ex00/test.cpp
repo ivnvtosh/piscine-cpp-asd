@@ -6,13 +6,16 @@
 /*   By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 03:04:58 by ccamie            #+#    #+#             */
-/*   Updated: 2022/10/19 15:13:22 by ccamie           ###   ########.fr       */
+/*   Updated: 2022/10/19 16:53:35 by ccamie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cstdlib>
 #include <unistd.h>
+#include <stdio.h>
+#include <string.h>
+#include <sys/wait.h>
 
 #define TARGET (char *)"./megaphone.out"
 #define BUFFER 1024
@@ -91,7 +94,7 @@ void test(char *expected, char **argv, char **envp) {
 	}
 	string[readed] = '\0';
 
-	if (std::strcmp(string, expected) != 0) {
+	if (strcmp(string, expected) != 0) {
 		std::cout << "---------------------" << "TEST-0" << index << "----------------------\n";
 
 		std::cout << "Expected: ";

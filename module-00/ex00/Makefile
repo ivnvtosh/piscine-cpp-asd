@@ -6,13 +6,13 @@
 #    By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 02:30:17 by ccamie            #+#    #+#              #
-#    Updated: 2022/10/19 14:37:54 by ccamie           ###   ########.fr        #
+#    Updated: 2022/10/19 16:44:01 by ccamie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SHELL		=	/bin/sh
 
-CC			=	c++
+CC			=	g++
 
 CPPFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
