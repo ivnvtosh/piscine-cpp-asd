@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  Exercise 00:
+  Exercise-00:
 
     runs-on: ubuntu-latest
 
