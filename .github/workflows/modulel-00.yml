@@ -19,7 +19,7 @@ jobs:
       run: sudo apt install -y libcppunit-dev
 
     - name: make
-      run: module/ex00/make
+      run: module-00/ex00/make
 
     - name: make check
-      run: module/ex00/make check
+      run: module-00/ex00/make check
