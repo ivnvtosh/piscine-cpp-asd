@@ -6,12 +6,24 @@
 /*   By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 01:15:21 by ccamie            #+#    #+#             */
-/*   Updated: 2022/10/20 02:16:34 by ccamie           ###   ########.fr       */
+/*   Updated: 2022/10/20 02:50:07 by ccamie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cstdlib>
+
+std::string read() {
+	std::string string;
+	std::string temporary;
+
+	while (std::getline(std::cin, temporary)) {
+		string += temporary;
+		string += "\n";
+	}
+
+	return string;
+}
 
 void print(std::string string) {
 	int i = 0;
@@ -30,12 +42,17 @@ void print(std::string string) {
 	}
 }
 
-int	main(void) {
+int	main(int argc, char **argv) {
+	if (argc == 1) {
+		return EXIT_FAILURE;
+	}
+
 	std::string expected;
 	std::string returned;
 
-	expected = "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	std::getline(std::cin, returned);
+	expected = argv[1];
+	expected += "\n";
+	returned = read();
 
 	if (returned == expected) {
 		std::cout << "\x1b[32mSUCCESS\x1b[0m\n";

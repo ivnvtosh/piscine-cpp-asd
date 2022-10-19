@@ -6,7 +6,7 @@
 #    By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 02:30:17 by ccamie            #+#    #+#              #
-#    Updated: 2022/10/20 01:40:35 by ccamie           ###   ########.fr        #
+#    Updated: 2022/10/20 02:52:06 by ccamie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,23 +40,17 @@ all			:	$(NAME)
 $(NAME)		:	$(OBJECT)
 				$(CC) $(CXXFLAGS) $(OBJECT) -o $(NAME)
 
-test-00		:	test-00.out
-				./$(NAME) "* LOUD AND UNBEARABLE FEEDBACK NOISE *" | ./test-00.out
+test-00		:	test.out
+				./$(NAME) | ./test.out "* LOUD AND UNBEARABLE FEEDBACK NOISE *"
 
-test-01		:	test-01.out
-				./$(NAME) "shhhhh... I think the students are asleep..." | ./test-01.out
+test-01		:	test.out
+				./$(NAME) "shhhhh... I think the students are asleep..." | ./test.out "SHHHHH... I THINK THE STUDENTS ARE ASLEEP..."
 
-test-02		:	test-02.out
-				./$(NAME) " ! " "Sorry students, I thought this thing was off." | ./test-02.out
+test-02		:	test.out
+				./$(NAME) Damnit " ! " "Sorry students, I thought this thing was off." | ./test.out "DAMNIT ! SORRY STUDENTS, I THOUGHT THIS THING WAS OFF."
 
-test-00.out	:	test-00.o
-				$(CC) $(CXXFLAGS) test-00.cpp -o test-00.out
-
-test-01.out	:	test-01.o
-				$(CC) $(CXXFLAGS) test-01.cpp -o test-01.out
-
-test-02.out	:	test-02.o
-				$(CC) $(CXXFLAGS) test-02.cpp -o test-02.out
+test.out	:	test.o
+				$(CC) $(CXXFLAGS) test.cpp -o test.out
 
 test		:	test-00 test-01 test-02
 
