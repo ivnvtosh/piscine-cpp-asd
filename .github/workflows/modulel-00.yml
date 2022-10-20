@@ -41,19 +41,5 @@ jobs:
   #   - name: Build
   #     run: make -C module-00/ex00
 
-    # - name: Exercise 00
-    #   run: make -C module-00/ex00 test
-
-jobs:
-
-  Ubuntu:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-
-    - name: Build
-      run: make -C module-00/ex00
-
-    - name: Exercise 00
-      run: make -C module-00/ex00 test
+  #   - name: Exercise 00
+  #     run: make -C module-00/ex00 test
