@@ -29,7 +29,8 @@ jobs:
       run: make -C module-00/ex00 test-02
 
   MacOS:
-    needs: Ubuntu
+    strategy:
+      fail-fast: false
     runs-on: macos-latest
 
     steps:
