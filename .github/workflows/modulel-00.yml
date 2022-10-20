@@ -26,6 +26,9 @@ jobs:
     - name: Exercise 01
       run: make -C module-00/ex01 test
 
+    - name: Exercise 02
+      run: make -C module-00/ex02 test
+
   MacOS:
     runs-on: macos-latest
 
@@ -41,6 +44,9 @@ jobs:
     - name: Exercise 01
       run: make -C module-00/ex01 test
 
+    - name: Exercise 02
+      run: make -C module-00/ex02 test
+
   Windows:
     runs-on: windows-latest
 
@@ -55,3 +61,6 @@ jobs:
 
     - name: Exercise 01
       run: make -C module-00/ex01 test
+
+    - name: Exercise 02
+      run: make -C module-00/ex02 test
