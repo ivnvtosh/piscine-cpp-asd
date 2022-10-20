@@ -9,7 +9,7 @@ on:
 jobs:
 
   # Exercise-00:
-  ubuntu:
+  Ubuntu:
 
     runs-on: ubuntu-latest
 
@@ -28,7 +28,7 @@ jobs:
     - name: Test 02
       run: make -C module-00/ex00 test-02
 
-  macos:
+  MacOS:
 
     runs-on: macos-latest
 
@@ -46,4 +46,22 @@ jobs:
 
     - name: Test 02
       run: make -C module-00/ex00 test-02
-  
+
+  Windows:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build
+      run: make -C module-00/ex00
+
+    - name: Test 00
+      run: make -C module-00/ex00 test-00
+
+    - name: Test 01
+      run: make -C module-00/ex00 test-01
+
+    - name: Test 02
+      run: make -C module-00/ex00 test-02
