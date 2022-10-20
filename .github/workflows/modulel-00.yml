@@ -11,7 +11,7 @@ on:
 
 jobs:
 
-  Ubuntu Exercise 00:
+  Ubuntu-Exercise-00:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,7 +23,7 @@ jobs:
     - name: Exercise 00
       run: make -C module-00/ex00 test
 
-  Ubuntu Exercise 01:
+  Ubuntu-Exercise-01:
     runs-on: ubuntu-latest
 
     steps:
@@ -35,7 +35,7 @@ jobs:
     - name: Exercise 01
       run: make -C module-00/ex01 test
 
-  Ubuntu Exercise 02:
+  Ubuntu-Exercise-02:
     runs-on: ubuntu-latest
 
     steps:
