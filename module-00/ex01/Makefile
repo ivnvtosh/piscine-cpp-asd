@@ -6,7 +6,7 @@
 #    By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/20 16:35:48 by ccamie            #+#    #+#              #
-#    Updated: 2022/10/20 19:35:14 by ccamie           ###   ########.fr        #
+#    Updated: 2022/10/20 21:07:52 by ccamie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,6 +67,24 @@ test		:	all
 				diff test/expected-00 test/returned-00.log
 				./$(NAME) < test/test-01 > test/returned-01.log
 				diff test/expected-01 test/returned-01.log
+				./$(NAME) < test/test-02 > test/returned-02.log
+				diff test/expected-02 test/returned-02.log
+				./$(NAME) < test/test-03 > test/returned-03.log
+				diff test/expected-03 test/returned-03.log
+				./$(NAME) < test/test-04 > test/returned-04.log
+				diff test/expected-04 test/returned-04.log
+				./$(NAME) < test/test-05 > test/returned-05.log
+				diff test/expected-05 test/returned-05.log
+				./$(NAME) < test/test-06 > test/returned-06.log
+				diff test/expected-06 test/returned-06.log
+				./$(NAME) < test/test-07 > test/returned-07.log
+				diff test/expected-07 test/returned-07.log
+				./$(NAME) < test/test-08 > test/returned-08.log
+				diff test/expected-08 test/returned-08.log
+				./$(NAME) < test/test-09 > test/returned-09.log
+				diff test/expected-09 test/returned-09.log
+				./$(NAME) < test/test-10 > test/returned-10.log
+				diff test/expected-10 test/returned-10.log
 
 clean		:
 				$(RM) $(OBJECT)

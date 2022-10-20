@@ -6,7 +6,7 @@
 /*   By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 16:35:46 by ccamie            #+#    #+#             */
-/*   Updated: 2022/10/20 19:05:40 by ccamie           ###   ########.fr       */
+/*   Updated: 2022/10/20 20:35:54 by ccamie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,10 @@ int getIndex() {
 			 		 " ";
 
 		std::cout << "\x1b[47m\x1b[30m\x1b[1m"
-					 "                       "
-					 "\b\b\b\b\b\b\b\b\b\b\b"
-					 "\b\b\b\b\b\b\b\b\b\b\b";
-
+					 " \0337                      \0338\0337";
 		std::getline(std::cin, string);
+
+		std::cout << "\0338" << string << "\n";
 
 		if (std::cin.eof() == true) {
 			return -1;
