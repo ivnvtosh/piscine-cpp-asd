@@ -6,7 +6,7 @@
 /*   By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 16:35:51 by ccamie            #+#    #+#             */
-/*   Updated: 2022/10/20 17:21:32 by ccamie           ###   ########.fr       */
+/*   Updated: 2022/10/20 19:38:18 by ccamie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ int myAtoi(std::string string) {
 		break;
 
 	case '+':
+		sign = 1;
 		i += 1;
+		break;
 	
 	default:
 		sign = 1;
