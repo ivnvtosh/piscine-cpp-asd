@@ -6,14 +6,12 @@
 /*   By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 21:34:07 by ccamie            #+#    #+#             */
-/*   Updated: 2022/10/21 00:05:13 by ccamie           ###   ########.fr       */
+/*   Updated: 2022/10/21 00:15:50 by ccamie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
-#include <iomanip>
-#include <ctime>
 
 int	Account::getNbAccounts( void ) {
 	return Account::_nbAccounts;
@@ -125,8 +123,16 @@ int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
 
 void Account::_displayTimestamp( void ) {
-	time_t now = time(NULL);
-	std::cout << std::put_time(localtime(&now), "[%Y%m%d_%H%M%S] ");
+	std::chrono::time_point<std::chrono::system_clock> now = std::chrono::system_clock::now();
+	std::time_t time_now = std::chrono::system_clock::to_time_t(now);
+
+	tm utc_tm = *localtime(&time_now);
+	std::cout << "[" << (utc_tm.tm_year + 1900)
+			  << utc_tm.tm_mon
+			  << utc_tm.tm_mday << "_"
+			  << utc_tm.tm_hour
+			  << utc_tm.tm_min
+			  << utc_tm.tm_sec << "] ";
 }
 
 Account::Account( void ) {
