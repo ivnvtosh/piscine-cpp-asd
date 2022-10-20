@@ -6,7 +6,7 @@
 #    By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/20 16:35:48 by ccamie            #+#    #+#              #
-#    Updated: 2022/10/20 19:27:54 by ccamie           ###   ########.fr        #
+#    Updated: 2022/10/20 19:31:12 by ccamie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CPPFLAGS	+=	-std=c++98
 CPPFLAGS	+=	-I include
 CPPFLAGS	+=	-g
 
-CXXFLAGS	=	
+# CXXFLAGS	=	
 
 MKDIR		=	mkdir -p
 
