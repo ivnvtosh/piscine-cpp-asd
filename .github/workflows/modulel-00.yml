@@ -8,7 +8,6 @@ on:
 
 jobs:
 
-  # Exercise-00:
   Ubuntu:
     runs-on: ubuntu-latest
 
@@ -20,15 +19,6 @@ jobs:
 
     - name: Exercise 00
       run: make -C module-00/ex00 test
-
-    # - name: Test 00
-    #   run: make -C module-00/ex00 test-00
-
-    # - name: Test 01
-    #   run: make -C module-00/ex00 test-01
-
-    # - name: Test 02
-    #   run: make -C module-00/ex00 test-02
 
   MacOS:
     runs-on: macos-latest
@@ -42,15 +32,6 @@ jobs:
     - name: Exercise 00
       run: make -C module-00/ex00 test
 
-    # - name: Test 00
-    #   run: make -C module-00/ex00 test-00
-
-    # - name: Test 01
-    #   run: make -C module-00/ex00 test-01
-
-    # - name: Test 02
-    #   run: make -C module-00/ex00 test-02
-
   # Windows:
   #   runs-on: windows-latest
 
@@ -60,11 +41,19 @@ jobs:
   #   - name: Build
   #     run: make -C module-00/ex00
 
-  #   - name: Test 00
-  #     run: make -C module-00/ex00 test-00
+    # - name: Exercise 00
+    #   run: make -C module-00/ex00 test
 
-  #   - name: Test 01
-  #     run: make -C module-00/ex00 test-01
+jobs:
 
-  #   - name: Test 02
-  #     run: make -C module-00/ex00 test-02
+  Ubuntu:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build
+      run: make -C module-00/ex00
+
+    - name: Exercise 00
+      run: make -C module-00/ex00 test
