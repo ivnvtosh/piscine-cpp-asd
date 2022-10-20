@@ -6,7 +6,7 @@
 #    By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/20 16:35:48 by ccamie            #+#    #+#              #
-#    Updated: 2022/10/20 19:31:12 by ccamie           ###   ########.fr        #
+#    Updated: 2022/10/20 19:35:14 by ccamie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CPPFLAGS	+=	-std=c++98
 CPPFLAGS	+=	-I include
 CPPFLAGS	+=	-g
 
-# CXXFLAGS	=	
+CXXFLAGS	=	
 
 MKDIR		=	mkdir -p
 
@@ -28,20 +28,20 @@ RM			=	rm -f
 
 NAME		=	phonebook.out
 
-HEADER		=	ClassContact.hpp	\
+_HEADER		=	ClassContact.hpp	\
 				ClassPhoneBook.hpp	\
 
-FUNCTIONS	=	ClassContact.cpp	\
+_SOURCE		=	ClassContact.cpp	\
 				ClassPhoneBook.cpp	\
 				Main.cpp			\
 				Messages.cpp		\
 				ReadLine.cpp		\
 				Utils.cpp			\
 
-SOURCE		=	$(addprefix source/, $(FUNCTIONS))
-OBJECT		=	$(addprefix object/, $(FUNCTIONS:.cpp=.o))
+SOURCE		=	$(addprefix source/, $(_SOURCE))
+OBJECT		=	$(addprefix object/, $(_SOURCE:.cpp=.o))
 FOLDER		=	$(sort $(dir object/ $(OBJECT)))
-HEADER		=	$(addprefix include/, $(HEADER))
+HEADER		=	$(addprefix include/, $(_HEADER))
 
 .SUFFIXES	:
 .SUFFIXES	:	.cpp .o

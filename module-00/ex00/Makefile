@@ -6,7 +6,7 @@
 #    By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/20 13:45:45 by ccamie            #+#    #+#              #
-#    Updated: 2022/10/20 19:31:07 by ccamie           ###   ########.fr        #
+#    Updated: 2022/10/20 19:35:20 by ccamie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CPPFLAGS	+=	-std=c++98
 # CPPFLAGS	+=	-I include
 # CPPFLAGS	+=	-g
 
-# CXXFLAGS	=	
+CXXFLAGS	=	
 
 MKDIR		=	mkdir -p
 
@@ -28,14 +28,14 @@ RM			=	rm -f
 
 NAME		=	megaphone.out
 
-# HEADER		=	
+_HEADER		=	
 
-FUNCTIONS	=	megaphone.cpp
+_SOURCE	=	megaphone.cpp
 
-SOURCE		=	$(addprefix source/, $(FUNCTIONS))
-OBJECT		=	$(addprefix object/, $(FUNCTIONS:.cpp=.o))
+SOURCE		=	$(addprefix source/, $(_SOURCE))
+OBJECT		=	$(addprefix object/, $(_SOURCE:.cpp=.o))
 FOLDER		=	$(sort $(dir object/ $(OBJECT)))
-HEADER		=	$(addprefix include/, $(HEADER))
+HEADER		=	$(addprefix include/, $(_HEADER))
 
 .SUFFIXES	:
 .SUFFIXES	:	.cpp .o
