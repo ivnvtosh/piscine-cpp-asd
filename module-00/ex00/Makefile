@@ -6,7 +6,7 @@
 #    By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/20 13:45:45 by ccamie            #+#    #+#              #
-#    Updated: 2022/10/20 17:10:41 by ccamie           ###   ########.fr        #
+#    Updated: 2022/10/20 19:31:07 by ccamie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CPPFLAGS	+=	-std=c++98
 # CPPFLAGS	+=	-I include
 # CPPFLAGS	+=	-g
 
-CXXFLAGS	=	
+# CXXFLAGS	=	
 
 MKDIR		=	mkdir -p
 
@@ -28,7 +28,7 @@ RM			=	rm -f
 
 NAME		=	megaphone.out
 
-HEADER		=	
+# HEADER		=	
 
 FUNCTIONS	=	megaphone.cpp
 
