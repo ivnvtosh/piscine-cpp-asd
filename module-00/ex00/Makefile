@@ -6,7 +6,7 @@
 #    By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 02:30:17 by ccamie            #+#    #+#              #
-#    Updated: 2022/10/20 03:57:05 by ccamie           ###   ########.fr        #
+#    Updated: 2022/10/20 04:28:27 by ccamie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ $(NAME)		:	$(OBJECT)
 test.out	:	test.o
 				$(CC) $(CXXFLAGS) test.cpp -o test.out
 
-test		:	test.out
+test		:	$(NAME) test.out
 				./$(NAME) "shhhhh... I think the students are asleep..." | ./test.out "SHHHHH... I THINK THE STUDENTS ARE ASLEEP..."
 				./$(NAME) Damnit " ! " "Sorry students, I thought this thing was off." | ./test.out "DAMNIT ! SORRY STUDENTS, I THOUGHT THIS THING WAS OFF."
 				./$(NAME) | ./test.out "* LOUD AND UNBEARABLE FEEDBACK NOISE *"
