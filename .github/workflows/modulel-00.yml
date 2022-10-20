@@ -2,8 +2,10 @@ name: Module 00
 
 on:
   push:
-    branches: [ "main" ]
-    branches: [ "develop" ]
+    branches: 
+      - "main"
+      - "develop"
+  
   pull_request:
     branches: [ "main" ]
 
