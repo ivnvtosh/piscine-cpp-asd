@@ -2,7 +2,10 @@ name: Module 00
 
 on:
   push:
-    branches: [ "main" ]
+    branches: 
+      - "main"
+      - "develop"
+  
   pull_request:
     branches: [ "main" ]
 
@@ -32,22 +35,8 @@ jobs:
     - name: Exercise 00
       run: make -C module-00/ex00 test
 
-  # Windows:
-  #   runs-on: windows-latest
-
-  #   steps:
-  #   - uses: actions/checkout@v2
-
-  #   - name: Build
-  #     run: make -C module-00/ex00
-
-    # - name: Exercise 00
-    #   run: make -C module-00/ex00 test
-
-jobs:
-
-  Ubuntu:
-    runs-on: ubuntu-latest
+  Windows:
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
