@@ -23,26 +23,26 @@ jobs:
     - name: Exercise 00
       run: make -C module-00/ex00 test
 
-  # MacOS:
-  #   runs-on: macos-latest
+  MacOS:
+    runs-on: macos-latest
 
-  #   steps:
-  #   - uses: actions/checkout@v2
+    steps:
+    - uses: actions/checkout@v2
 
-  #   - name: Build
-  #     run: make -C module-00/ex00
+    - name: Build
+      run: make -C module-00/ex00
 
-  #   - name: Exercise 00
-  #     run: make -C module-00/ex00 test
+    - name: Exercise 00
+      run: make -C module-00/ex00 test
 
-  # Windows:
-  #   runs-on: windows-latest
+  Windows:
+    runs-on: windows-latest
 
-  #   steps:
-  #   - uses: actions/checkout@v2
+    steps:
+    - uses: actions/checkout@v2
 
-  #   - name: Build
-  #     run: make -C module-00/ex00
+    - name: Build
+      run: make -C module-00/ex00
 
-  #   - name: Exercise 00
-  #     run: make -C module-00/ex00 test
+    - name: Exercise 00
+      run: make -C module-00/ex00 test
