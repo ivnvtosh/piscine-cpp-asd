@@ -6,7 +6,7 @@
 #    By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 02:30:17 by ccamie            #+#    #+#              #
-#    Updated: 2022/10/20 03:40:29 by ccamie           ###   ########.fr        #
+#    Updated: 2022/10/20 03:42:46 by ccamie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ test.out	:	test.o
 test		:	test.out
 				./$(NAME) "shhhhh... I think the students are asleep..." | ./test.out "SHHHHH... I THINK THE STUDENTS ARE ASLEEP..."
 				./$(NAME) Damnit " ! " "Sorry students, I thought this thing was off." | ./test.out "DAMNIT ! SORRY STUDENTS, I THOUGHT THIS THING WAS OFF."
-				./$(NAME) | ./test.out "* LOUD AND UNBEARABLE FEEDBACK NOISE *"
+				./$(NAME) | ./test.out "* LOUD AND UNBEARABLE FEEDBACK NOISE LOL *"
 
 clean		:
 				$(RM) $(OBJECT)
