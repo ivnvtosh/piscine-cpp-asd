@@ -37,3 +37,6 @@
 
 # Operating System files
 .DS_Store
+
+# Other
+*.log

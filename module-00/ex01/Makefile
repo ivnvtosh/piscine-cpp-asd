@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/20 13:45:45 by ccamie            #+#    #+#              #
-#    Updated: 2022/10/20 17:10:41 by ccamie           ###   ########.fr        #
+#    Created: 2022/10/20 16:35:48 by ccamie            #+#    #+#              #
+#    Updated: 2022/10/20 19:27:54 by ccamie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@ CC			=	c++
 
 CPPFLAGS	=	-Wall -Wextra -Werror
 CPPFLAGS	+=	-std=c++98
-# CPPFLAGS	+=	-I include
-# CPPFLAGS	+=	-g
+CPPFLAGS	+=	-I include
+CPPFLAGS	+=	-g
 
 CXXFLAGS	=	
 
@@ -26,11 +26,17 @@ MKDIR		=	mkdir -p
 RMDIR		=	rm -rf
 RM			=	rm -f
 
-NAME		=	megaphone.out
+NAME		=	phonebook.out
 
-HEADER		=	
+HEADER		=	ClassContact.hpp	\
+				ClassPhoneBook.hpp	\
 
-FUNCTIONS	=	megaphone.cpp
+FUNCTIONS	=	ClassContact.cpp	\
+				ClassPhoneBook.cpp	\
+				Main.cpp			\
+				Messages.cpp		\
+				ReadLine.cpp		\
+				Utils.cpp			\
 
 SOURCE		=	$(addprefix source/, $(FUNCTIONS))
 OBJECT		=	$(addprefix object/, $(FUNCTIONS:.cpp=.o))
@@ -45,7 +51,7 @@ HEADER		=	$(addprefix include/, $(HEADER))
 %.o			:	%.cpp
 				$(CC) $(CPPFLAGS) -c $< -o $@
 
-object/%.o	:	source/%.cpp $(HEADER)
+object/%.o	:	source/%.cpp 
 				$(CC) $(CPPFLAGS) -c $< -o $@
 
 all			:	$(FOLDER) $(NAME)
@@ -56,21 +62,19 @@ $(FOLDER)	:
 $(NAME)		:	$(OBJECT)
 				$(CC) $(CXXFLAGS) $(OBJECT) -o $(NAME)
 
-test/test.out:	test/test.o
-				$(CC) $(CXXFLAGS) test/test.cpp -o test/test.out
-
-test		:	all test/test.out
-				./$(NAME) "shhhhh... I think the students are asleep..." | test/test.out "SHHHHH... I THINK THE STUDENTS ARE ASLEEP..."
-				./$(NAME) Damnit " ! " "Sorry students, I thought this thing was off." | test/test.out "DAMNIT ! SORRY STUDENTS, I THOUGHT THIS THING WAS OFF."
-				./$(NAME) | test/test.out "* LOUD AND UNBEARABLE FEEDBACK NOISE *"
+test		:	all
+				./$(NAME) < test/test-00 > test/returned-00.log
+				diff test/expected-00 test/returned-00.log
+				./$(NAME) < test/test-01 > test/returned-01.log
+				diff test/expected-01 test/returned-01.log
 
 clean		:
-				$(RM) $(OBJECT) test/test.o
+				$(RM) $(OBJECT)
 				$(RMDIR) $(FOLDER)
 
 fclean		:
-				$(RM) $(OBJECT) test/test.o
+				$(RM) $(OBJECT)
 				$(RMDIR) $(FOLDER)
-				$(RM) $(NAME) test/test.out
+				$(RM) $(NAME)
 
 re			:	fclean all
