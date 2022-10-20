@@ -6,7 +6,7 @@
 #    By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/20 13:45:45 by ccamie            #+#    #+#              #
-#    Updated: 2022/10/20 19:35:20 by ccamie           ###   ########.fr        #
+#    Updated: 2022/10/20 21:23:56 by ccamie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,13 +56,13 @@ $(FOLDER)	:
 $(NAME)		:	$(OBJECT)
 				$(CC) $(CXXFLAGS) $(OBJECT) -o $(NAME)
 
-test/test.out:	test/test.o
-				$(CC) $(CXXFLAGS) test/test.cpp -o test/test.out
-
-test		:	all test/test.out
-				./$(NAME) "shhhhh... I think the students are asleep..." | test/test.out "SHHHHH... I THINK THE STUDENTS ARE ASLEEP..."
-				./$(NAME) Damnit " ! " "Sorry students, I thought this thing was off." | test/test.out "DAMNIT ! SORRY STUDENTS, I THOUGHT THIS THING WAS OFF."
-				./$(NAME) | test/test.out "* LOUD AND UNBEARABLE FEEDBACK NOISE *"
+test		:	all
+				./$(NAME) "shhhhh... I think the students are asleep..." > test/returned-00.log
+				diff test/expected-00 test/returned-00.log
+				./$(NAME) Damnit " ! " "Sorry students, I thought this thing was off." > test/returned-01.log
+				diff test/expected-01 test/returned-01.log
+				./$(NAME) > test/returned-02.log
+				diff test/expected-02 test/returned-02.log
 
 clean		:
 				$(RM) $(OBJECT) test/test.o
