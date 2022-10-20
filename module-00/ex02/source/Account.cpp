@@ -6,13 +6,14 @@
 /*   By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 21:34:07 by ccamie            #+#    #+#             */
-/*   Updated: 2022/10/20 23:51:25 by ccamie           ###   ########.fr       */
+/*   Updated: 2022/10/21 00:05:13 by ccamie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
 #include <iomanip>
+#include <ctime>
 
 int	Account::getNbAccounts( void ) {
 	return Account::_nbAccounts;
