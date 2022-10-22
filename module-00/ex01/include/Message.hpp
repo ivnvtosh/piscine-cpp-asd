@@ -1,41 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClassPhoneBook.hpp                                 :+:      :+:    :+:   */
+/*   Message.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/20 16:35:45 by ccamie            #+#    #+#             */
-/*   Updated: 2022/10/21 15:43:45 by ccamie           ###   ########.fr       */
+/*   Created: 2022/10/21 15:45:49 by ccamie            #+#    #+#             */
+/*   Updated: 2022/10/21 16:19:56 by ccamie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLASS_PHONEBOOK_HPP
-#define CLASS_PHONEBOOK_HPP
+#ifndef MESSAGE_HPP
+#define MESSAGE_HPP
 
-#include "ClassContact.hpp"
+namespace Message {
 
-class PhoneBook {
-private:
-	Contact	contacts[8];
-	int	numberOfContacts;
-
-	void _offset();
-
-public:
-	PhoneBook();
-
-	void append(Contact contact);
-
-	bool isEmpty();
-	bool isEmpty(int index);
-
-	void description();
-	void description(int index);
-
+	void welcome();
+	void invalidInput();
 	void newContact();
-	void searchContact();
+	void contactRecorded();
+	void yourContact();
+	void contactNotFound();
+	void fillInField();
+	void invalidIndex();
+	void bye();
+	void emergency();
 
-};
+}
 
-#endif // CLASS_PHONEBOOK_HPP
+#endif // MESSAGE_HPP

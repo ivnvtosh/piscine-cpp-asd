@@ -6,7 +6,7 @@
 #    By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/20 16:35:48 by ccamie            #+#    #+#              #
-#    Updated: 2022/10/20 21:19:45 by ccamie           ###   ########.fr        #
+#    Updated: 2022/10/22 11:11:32 by ccamie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,11 +30,12 @@ NAME		=	phonebook.out
 
 _HEADER		=	ClassContact.hpp	\
 				ClassPhoneBook.hpp	\
+				Message.hpp			\
 
 _SOURCE		=	ClassContact.cpp	\
 				ClassPhoneBook.cpp	\
 				Main.cpp			\
-				Messages.cpp		\
+				Message.cpp			\
 				ReadLine.cpp		\
 				Utils.cpp			\
 
@@ -51,7 +52,7 @@ HEADER		=	$(addprefix include/, $(_HEADER))
 %.o			:	%.cpp
 				$(CC) $(CPPFLAGS) -c $< -o $@
 
-object/%.o	:	source/%.cpp 
+object/%.o	:	source/%.cpp
 				$(CC) $(CPPFLAGS) -c $< -o $@
 
 all			:	$(FOLDER) $(NAME)

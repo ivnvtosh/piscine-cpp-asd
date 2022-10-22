@@ -6,11 +6,16 @@
 /*   By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 16:35:44 by ccamie            #+#    #+#             */
-/*   Updated: 2022/10/20 20:31:41 by ccamie           ###   ########.fr       */
+/*   Updated: 2022/10/22 11:14:26 by ccamie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClassPhoneBook.hpp"
+#include "Message.hpp"
+
+std::string readLine(std::string message);
+bool onlyDigit(std::string string);
+int myAtoi(std::string string);
 
 PhoneBook::PhoneBook() {
 	this->numberOfContacts = 0;
@@ -88,66 +93,74 @@ void PhoneBook::description(int index) {
 }
 
 static std::string getInput(std::string message) {
-	if (std::cin.eof() == true) {
-		return "";
-	}
-
 	std::string	string;
 
-
-
 	while (1) {
-		std::cout << "\n\033[1F"
-				  << "\x1b[43m\x1b[37m\x1b[1m"
-				  << message
-				  << "\x1b[0m"
-				     " ";
-
-		std::cout << "\x1b[47m\x1b[30m\x1b[1m"
-					 " \0337                      \0338\0337";
-
-		std::getline(std::cin, string);
-
-		std::cout << "\0338" << string << "\n";
-
-		if (std::cin.eof() == true) {
-			return "";
-		}
+		string = readLine(message);
 
 		if (string.empty() == true) {
-			std::cout << "\x1b[0m" << std::endl;
-
-			std::cout << "\x1b[41m\x1b[30m\x1b[1m"
-						 " ❌ Заполните поле!                          "
-						 "\x1b[0m\n";
-
-			std::cout << "\x1b[0m" << std::endl;
+			Message::fillInField();
 			continue;
 		}
-
-		std::cout << "\x1b[0m";
 
 		return string;
 	}
 }
 
 void PhoneBook::newContact() {
-	std::string	firstName     = getInput(" 👤 Имя            : ");
-	std::string	lastName      = getInput(" 👤 Фамилия        : ");
-	std::string	nickname      = getInput(" 👤 Логин          : ");
-	std::string	phoneNumber   = getInput(" 👤 Номер телефона : ");
-	std::string	darkestSecret = getInput(" 👤 Секрет         : ");
-	if (std::cin.eof() == true) {
+	Message::newContact();
+
+	std::string	firstName     = getInput(" 👤 Имя             : ");
+	std::string	lastName      = getInput(" 👤 Фамилия         : ");
+	std::string	nickname      = getInput(" 👤 Логин           : ");
+	std::string	phoneNumber   = getInput(" 👤 Номер телефона  : ");
+	std::string	darkestSecret = getInput(" 👤 Секрет          : ");
+
+	Contact	contact = Contact(
+		firstName,
+		lastName,
+		nickname,
+		phoneNumber,
+		darkestSecret
+	);
+
+	contact.description();
+
+	this->append(contact);
+}
+
+void PhoneBook::searchContact() {
+	if (this->isEmpty() == true) {
+		Message::contactNotFound(); 
 		return;
 	}
 
-	std::cout << std::endl;
+	Message::yourContact();
+	this->description();
 
-	Contact	contact = Contact(firstName,
-							  lastName,
-							  nickname,
-							  phoneNumber,
-							  darkestSecret);
+	std::string	string;
+	int	index;
+	while (1) {
+		string = readLine( " 🦍 Индекс          : ");
 
-	this->append(contact);
+		if (string.empty() == true) {
+			Message::fillInField();
+			continue;
+		}
+
+		if (onlyDigit(string) == false) {
+			Message::invalidInput();
+			continue;
+		}
+
+		index = myAtoi(string);
+
+		if (this->isEmpty(index) == true) {
+			Message::invalidIndex();
+			continue;
+		}
+
+		this->description(index);
+		return;
+	}
 }

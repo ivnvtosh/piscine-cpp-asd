@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Messages.cpp                                       :+:      :+:    :+:   */
+/*   Message.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 16:35:50 by ccamie            #+#    #+#             */
-/*   Updated: 2022/10/20 21:18:03 by ccamie           ###   ########.fr       */
+/*   Updated: 2022/10/21 16:22:13 by ccamie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Message.hpp"
 #include <iostream>
 
-void welcomeMessage() {
+void Message::welcome() {
 	std::cout << "\033c"
 				 "\x1b[47m\x1b[30m\x1b[1m"
 			     " ✋ Здравствуйте,                            "
@@ -25,7 +26,7 @@ void welcomeMessage() {
 	std::cout << std::endl;
 }
 
-void invalidInputMessage() {
+void Message::invalidInput() {
 	std::cout << "\x1b[41m\x1b[30m\x1b[1m"
 				 " ❌ Недействительный ввод!                   "
 				 "\x1b[0m\n";
@@ -33,7 +34,7 @@ void invalidInputMessage() {
 	std::cout << std::endl;
 }
 
-void newContactMessage() {
+void Message::newContact() {
 	std::cout << "\n\033[1F"
 				 "\x1b[47m\x1b[30m\x1b[1m"
 				 " ✋ Новый контакт:                           "
@@ -42,7 +43,7 @@ void newContactMessage() {
 	std::cout << std::endl;
 }
 
-void contactRecordedMessage() {
+void Message::contactRecorded() {
 	std::cout << "\x1b[47m\x1b[30m\x1b[1m"
 				 " ✅ Котнакт записан                          "
 				 "\x1b[0m\n";
@@ -50,7 +51,7 @@ void contactRecordedMessage() {
 	std::cout << std::endl;
 }
 
-void yourContactMessage() {
+void Message::yourContact() {
 	std::cout << "\n\033[1F"
 				 "\x1b[47m\x1b[30m\x1b[1m"
 				 " 📚 Твои контакты:                           "
@@ -59,7 +60,7 @@ void yourContactMessage() {
 	std::cout << std::endl;
 }
 
-void emptyMessage() {
+void Message::contactNotFound() {
 	std::cout << "\x1b[47m\x1b[30m\x1b[1m"
 				 " 🗑  Пора найти друзей!                       "
 			  	 "\x1b[0m\n";
@@ -67,7 +68,15 @@ void emptyMessage() {
 	std::cout << std::endl;
 }
 
-void invalidIndexMessage() {
+void Message::fillInField() {
+	std::cout << "\x1b[41m\x1b[30m\x1b[1m"
+				" ❌ Заполните поле!                          "
+				"\x1b[0m\n";
+
+	std::cout << std::endl;
+}
+
+void Message::invalidIndex() {
 	std::cout << "\x1b[41m\x1b[30m\x1b[1m"
 				 " ❌ Контакт не найден                        "
 			  	 "\x1b[0m\n";
@@ -75,7 +84,7 @@ void invalidIndexMessage() {
 	std::cout << std::endl;
 }
 
-void byeMessage() {
+void Message::bye() {
 	std::cout << "\x1b[47m\x1b[30m\x1b[1m"
 				 " 👋 Спасибо, до свидания!                    "
 				 "\x1b[0m\n";
@@ -87,7 +96,7 @@ void byeMessage() {
 	std::cout << std::endl;
 }
 
-void emergencyMessage() {
+void Message::emergency() {
 	std::cout << "\x1b[41m\x1b[30m\x1b[1m"
 				 " 🚨 Аварийная ситуация!                      "
 			  	 "\x1b[0m\n";
