@@ -6,7 +6,7 @@
 #    By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/20 16:35:48 by ccamie            #+#    #+#              #
-#    Updated: 2022/10/20 22:11:22 by ccamie           ###   ########.fr        #
+#    Updated: 2022/10/24 14:37:55 by ccamie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,8 +60,9 @@ $(NAME)		:	$(OBJECT)
 test		:	all
 				./$(NAME) > test/returned.log
 				cat test/returned.log | cut -d] -f2 > test/temporary-returned.log
-				cat test/expected | cut -d] -f2 > test/temporary-expected.log
-				diff test/temporary-expected.log test/temporary-returned.log
+				cat test/expected-0 | cut -d] -f2 > test/temporary-expected-0.log
+				cat test/expected-1 | cut -d] -f2 > test/temporary-expected-1.log
+				diff test/temporary-expected-0.log test/temporary-returned.log || diff test/temporary-expected-1.log test/temporary-returned.log
 
 clean		:
 				$(RM) $(OBJECT)

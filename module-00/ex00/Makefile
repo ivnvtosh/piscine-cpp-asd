@@ -6,7 +6,7 @@
 #    By: ccamie <ccamie@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/20 13:45:45 by ccamie            #+#    #+#              #
-#    Updated: 2022/10/20 21:23:56 by ccamie           ###   ########.fr        #
+#    Updated: 2022/10/22 20:34:29 by ccamie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ NAME		=	megaphone.out
 
 _HEADER		=	
 
-_SOURCE	=	megaphone.cpp
+_SOURCE		=	megaphone.cpp
 
 SOURCE		=	$(addprefix source/, $(_SOURCE))
 OBJECT		=	$(addprefix object/, $(_SOURCE:.cpp=.o))
